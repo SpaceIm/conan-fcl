@@ -6,3 +6,5 @@ patches:
   "0.6.1":
     - patch_file: "patches/conanize-cmake-0.6.1.patch"
       base_path: "source_subfolder"
+    - patch_file: "patches/fix-mingw-bigobj.patch"
+      base_path: "source_subfolder"
