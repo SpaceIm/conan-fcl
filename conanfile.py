@@ -40,8 +40,8 @@ class FclConan(ConanFile):
             del self.options.fPIC
 
     def configure(self):
-        if self.settings.compiler == "Visual Studio" and self.options.shared:
-            raise ConanInvalidConfiguration("{0} {1} can't be compiled as shared lib with Visual Studio")
+        if self.settings.os == "Windows" and self.options.shared:
+            raise ConanInvalidConfiguration("{0} {1} doesn't properly support shared lib on Windows")
 
     def requirements(self):
         self.requires.add("eigen/3.3.7")
