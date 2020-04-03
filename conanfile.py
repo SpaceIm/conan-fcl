@@ -40,14 +40,10 @@ class FclConan(ConanFile):
             del self.options.fPIC
 
     def configure(self):
+        if self.settings.compiler == "Visual Studio" and tools.Version(self.settings.compiler.version) < "15":
+            raise ConanInvalidConfiguration("Visual Studio < 2017 is not supported")
         if self.settings.os == "Windows" and self.options.shared:
             raise ConanInvalidConfiguration("{0} {1} doesn't properly support shared lib on Windows")
-        if self.settings.compiler == "Visual Studio":
-            compiler_version = tools.Version(self.settings.compiler.version)
-            if compiler_version < "14":
-                raise ConanInvalidConfiguration("Visual Studio < 14 is not supported")
-            if compiler_version == "14" and str(self.settings.compiler.runtime).startswith("MT"):
-                raise ConanInvalidConfiguration("Visual Studio 14 with MT runtime is not supported")
 
     def requirements(self):
         self.requires.add("eigen/3.3.7")
