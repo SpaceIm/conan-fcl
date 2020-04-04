@@ -8,3 +8,5 @@ patches:
       base_path: "source_subfolder"
     - patch_file: "patches/fix-mingw-bigobj.patch"
       base_path: "source_subfolder"
+    - patch_file: "patches/fix-alias-type-msvc2015.patch"
+      base_path: "source_subfolder"
