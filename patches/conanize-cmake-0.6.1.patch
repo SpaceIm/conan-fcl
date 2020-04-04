@@ -63,11 +63,8 @@
 
  set(PKG_EXTERNAL_DEPS "ccd eigen3")
 
-@@ -208,61 +159,11 @@ set(PKG_EXTERNAL_DEPS "ccd eigen3")
- # and OCTOMAP_LIBRARY, OCTOMATH_LIBRARY, and OCTOMAP_VERSION
- #===============================================================================
- option(FCL_WITH_OCTOMAP "OctoMap library support" ON)
--set(FCL_HAVE_OCTOMAP 0)
+@@ -211,58 +162,9 @@ option(FCL_WITH_OCTOMAP "OctoMap library support" ON)
+ set(FCL_HAVE_OCTOMAP 0)
 
  if(FCL_WITH_OCTOMAP)
 -  find_package(octomap QUIET)
