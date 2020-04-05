@@ -39,11 +39,6 @@ class FclConan(ConanFile):
         if self.settings.os == "Windows":
             del self.options.fPIC
 
-    def configure(self):
-        if self.settings.os == "Windows" and self.options.shared:
-            raise ConanInvalidConfiguration("{0} {1} doesn't properly support shared lib on Windows".format(self.name,
-                                                                                                            self.version))
-
     def requirements(self):
         self.requires.add("eigen/3.3.7")
         self.requires.add("libccd/2.1")
