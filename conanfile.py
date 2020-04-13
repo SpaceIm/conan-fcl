@@ -39,6 +39,10 @@ class FclConan(ConanFile):
         if self.settings.os == "Windows":
             del self.options.fPIC
 
+    def configure(self):
+        if self.settings.compiler.cppstd:
+            tools.check_min_cppstd(self, 11)
+
     def requirements(self):
         self.requires.add("eigen/3.3.7")
         self.requires.add("libccd/2.1")
