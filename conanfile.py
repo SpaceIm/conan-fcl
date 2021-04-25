@@ -44,10 +44,10 @@ class FclConan(ConanFile):
             tools.check_min_cppstd(self, 11)
 
     def requirements(self):
-        self.requires.add("eigen/3.3.7")
-        self.requires.add("libccd/2.1")
+        self.requires("eigen/3.3.9")
+        self.requires("libccd/2.1")
         if self.options.with_octomap:
-            self.requires.add("octomap/1.9.3")
+            self.requires("octomap/1.9.6")
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
